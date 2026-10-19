@@ -1,0 +1,143 @@
+/* DocuShrink Custom Styles & Utilities */
+
+:root {
+  --primary: #dc2626;
+  --primary-hover: #b91c1c;
+  --primary-glow: rgba(220, 38, 38, 0.18);
+  --emerald: #10b981;
+  --emerald-bg: rgba(16, 185, 129, 0.12);
+  --emerald-text: #047857;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Tactile Button Press */
+.btn-tactile {
+  transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.btn-tactile:active {
+  transform: translateY(1px) scale(0.985);
+}
+
+/* Dropzone Styling */
+.dropzone-border {
+  border: 2px dashed #cbd5e1;
+  transition: all 0.25s ease-in-out;
+}
+.dropzone-active,
+.dropzone-border:hover {
+  border-color: #dc2626;
+  background-color: rgba(220, 38, 38, 0.03);
+}
+
+/* Dynamic Progress Bar */
+.progress-bar-track {
+  height: 8px;
+  background-color: #e2e8f0;
+  border-radius: 9999px;
+  overflow: hidden;
+  position: relative;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  width: 0%;
+  border-radius: 9999px;
+  background: linear-gradient(90deg, #dc2626, #ef4444);
+  transition: width 300ms cubic-bezier(0.4, 0, 0.2, 1), background-color 300ms ease;
+  position: relative;
+}
+
+.progress-bar-fill.completed {
+  background: linear-gradient(90deg, #059669, #10b981);
+}
+
+.progress-bar-fill::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-image: linear-gradient(
+    -45deg,
+    rgba(255, 255, 255, 0.25) 25%,
+    transparent 25%,
+    transparent 50%,
+    rgba(255, 255, 255, 0.25) 50%,
+    rgba(255, 255, 255, 0.25) 75%,
+    transparent 75%,
+    transparent
+  );
+  background-size: 1rem 1rem;
+  animation: progress-stripes 1s linear infinite;
+}
+
+@keyframes progress-stripes {
+  0% {
+    background-position: 1rem 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+.progress-bar-fill.completed::after {
+  display: none;
+}
+
+/* Modal and Fade In Animations */
+.animate-fadeIn {
+  animation: fadeIn 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Dark mode custom overrides */
+.dark body {
+  background-color: #0d1522;
+  color: #f1f5f9;
+}
+.dark .bg-surface {
+  background-color: #0d1522;
+}
+.dark .bg-surface-container-lowest {
+  background-color: #172233;
+}
+.dark .bg-surface-container {
+  background-color: #1e2d42;
+}
+.dark .bg-surface-container-low {
+  background-color: #131d2c;
+}
+.dark .bg-surface-container-high {
+  background-color: #24354e;
+}
+.dark .text-on-surface {
+  color: #f8fafc;
+}
+.dark .text-secondary {
+  color: #94a3b8;
+}
+.dark .dropzone-border {
+  border-color: #334155;
+}
+.dark .border-surface-border {
+  border-color: #26354a;
+}
